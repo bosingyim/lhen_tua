@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="./">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Party Game">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="lhen_tua">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Lhen Tua</title>
+  
+  <style>
+    body { background-color: #0F2027; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; }
+    .loading { font-size: 24px; }
+  </style>
+</head>
+<body>
+  
+  <div id="loading-indicator" class="loading">Loading Game...</div>
+
+  <script src="main.dart.js" type="application/javascript"></script>
+
+  <script>
+    window.addEventListener('load', function() {
+      var loading = document.getElementById('loading-indicator');
+      // รอเช็คว่า Flutter engine ทำงานหรือยัง
+      setTimeout(function(){
+          if(loading) loading.style.display = 'none';
+      }, 3000); // ซ่อน loading หลัง 3 วิ (เผื่อไว้)
+    });
+  </script>
+</body>
+</html>
