@@ -8,4 +8,6 @@ class Player {
     this.role,
     this.secretWord,
   });
+
+  get isGhost => null;
 }

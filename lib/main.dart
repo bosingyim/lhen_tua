@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart'; // เรียกหน้าเมนูรวม
+import 'package:google_fonts/google_fonts.dart'; // 1. เพิ่ม import นี้
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Party Box',
-      home: GameMenuScreen(), // <--- เริ่มต้นที่หน้าเลือกเกม
+      // 2. เพิ่มส่วน theme ตรงนี้
+      theme: ThemeData(
+        brightness: Brightness.dark, // คุมโทนเข้ม
+        textTheme: GoogleFonts.kanitTextTheme(
+          Theme.of(context).textTheme,
+        ),
+      ),
+      home: GameMenuScreen(),
     );
   }
 }
