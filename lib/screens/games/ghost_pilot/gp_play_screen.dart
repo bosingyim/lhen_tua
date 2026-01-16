@@ -55,7 +55,7 @@ class _GhostPilotPlayScreenState extends State<GhostPilotPlayScreen> {
                   )
                 : GenericPassingPhase(
                     playerName: widget.players[currentIndex].name,
-                    topLabel: "บทบาทของคุณคือ...", 
+                    topLabel: "ดาวที่เราจะลงจอดคือออ...", 
                     secretContent: widget.players[currentIndex].secretWord!,
                     onNext: _nextPlayer,
           ),
