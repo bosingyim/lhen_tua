@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'games/ghost_pilot/gp_setup_screen.dart'; // <--- import หน้า Setup ของ Ghost Pilot (ไฟล์เก่าที่คุณเปลี่ยนชื่อ)
+import 'games/ghost_pilot/gp_setup_screen.dart'; 
 
 class GameMenuScreen extends StatelessWidget {
   @override
@@ -10,22 +10,28 @@ class GameMenuScreen extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Color(0xFF1A2980), Color(0xFF26D0CE)], // ธีมสีฟ้าน้ำทะเลลึก
+            colors: [Color(0xFF1A2980), Color(0xFF26D0CE)], 
           ),
         ),
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // หัวข้อแอป
+                SizedBox(height: 20),
                 Text(
-                  "PARTY BOX 🍻",
-                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.w900, color: Colors.white, letterSpacing: 2),
+                  "Lhen Tua เล่นตัว เดอะ ปาตี้",
+                  style: TextStyle(
+                    fontSize: 32, 
+                    fontWeight: FontWeight.w900, 
+                    color: Colors.white, 
+                    letterSpacing: 1.2
+                  ),
                 ),
                 Text(
-                  "เลือกเกมที่จะเล่นคืนนี้!",
+                  "เลือกเกมที่จะเล่น",
                   style: TextStyle(fontSize: 16, color: Colors.white70),
                 ),
                 SizedBox(height: 30),
@@ -38,12 +44,11 @@ class GameMenuScreen extends StatelessWidget {
                       _buildGameCard(
                         context,
                         title: "Ghost Pilot",
-                        subtitle: "จับผิดคนเนียน เป็นผีนักบิน!",
+                        subtitle: "จับผิดคนเนียน อย่าให้ผีรู้พิกัด!",
                         icon: Icons.flight_takeoff,
                         color1: Color(0xFFFF512F),
                         color2: Color(0xFFDD2476),
                         onTap: () {
-                          // กดแล้วไปหน้า Setup ของ Ghost Pilot
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => GhostPilotSetupScreen()), 
@@ -53,18 +58,42 @@ class GameMenuScreen extends StatelessWidget {
 
                       SizedBox(height: 20),
 
-                      // --- เกมที่ 2: Coming Soon (ตัวอย่าง) ---
+                      // --- เกมที่ 2: Coming Soon ---
                       _buildGameCard(
                         context,
-                        title: "ใบ้คำหรรษา",
+                        title: "เกมอื่นๆ",
                         subtitle: "เร็วๆ นี้...",
                         icon: Icons.theater_comedy,
                         color1: Colors.grey,
                         color2: Colors.blueGrey,
-                        isLocked: true, // ล็อคไว้ก่อน
+                        isLocked: true,
                         onTap: () {},
                       ),
                     ],
+                  ),
+                ),
+
+                // --- ส่วนของเครดิต (Credits Section) ---
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Developed by",
+                          style: TextStyle(color: Colors.white38, fontSize: 12),
+                        ),
+                        Text(
+                          "bossnhamdeang",
+                          style: TextStyle(
+                            color: Colors.white70, 
+                            fontSize: 14, 
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1.5
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -75,7 +104,7 @@ class GameMenuScreen extends StatelessWidget {
     );
   }
 
-  // Widget สร้างการ์ดเกมสวยๆ
+  // Widget สร้างการ์ดเกม
   Widget _buildGameCard(
     BuildContext context, {
     required String title,
@@ -108,14 +137,11 @@ class GameMenuScreen extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            // Icon ลายน้ำจางๆ ด้านหลัง
             Positioned(
               right: -20,
               bottom: -20,
               child: Icon(icon, size: 150, color: Colors.white.withOpacity(0.1)),
             ),
-            
-            // เนื้อหา
             Padding(
               padding: EdgeInsets.all(25),
               child: Row(
@@ -147,8 +173,6 @@ class GameMenuScreen extends StatelessWidget {
                 ],
               ),
             ),
-
-            // แม่กุญแจถ้าล็อคอยู่
             if (isLocked)
               Positioned(
                 top: 15,
